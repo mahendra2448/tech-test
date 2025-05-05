@@ -14,7 +14,7 @@ type RespJSON struct {
 func ReturnOK(w http.ResponseWriter, msg string) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(RespJSON{
+	_ = json.NewEncoder(w).Encode(RespJSON{
 		Status:  http.StatusText(http.StatusOK),
 		Message: msg,
 		Errors:  nil,
@@ -24,7 +24,7 @@ func ReturnOK(w http.ResponseWriter, msg string) {
 func ReturnBadRequest(w http.ResponseWriter, err error, msg string) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusBadRequest)
-	json.NewEncoder(w).Encode(RespJSON{
+	_ = json.NewEncoder(w).Encode(RespJSON{
 		Status:  http.StatusText(http.StatusBadRequest),
 		Message: msg,
 		Errors:  &err,
@@ -34,7 +34,7 @@ func ReturnBadRequest(w http.ResponseWriter, err error, msg string) {
 func ReturnErr(w http.ResponseWriter, err error, msg string) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusInternalServerError)
-	json.NewEncoder(w).Encode(RespJSON{
+	_ = json.NewEncoder(w).Encode(RespJSON{
 		Status:  http.StatusText(http.StatusInternalServerError),
 		Message: msg,
 		Errors:  &err,
