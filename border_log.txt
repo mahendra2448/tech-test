@@ -1,4 +1,0 @@
-black pixel top found at: (10, 10)
-black pixel bottom found at: (10, 11)
-black pixel left found at: (10, 10)
-black pixel right found at: (312, 10)
